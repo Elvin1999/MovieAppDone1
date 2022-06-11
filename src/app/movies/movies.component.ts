@@ -11,8 +11,9 @@ export class MoviesComponent implements OnInit {
   constructor() {
     this.movieRepository = new MovieRepository();
     this.movies = this.movieRepository.getMovies();
+    //this.movies.length=0;
   }
-
+  title: string = 'Movie List';
   movies: Movie[];
   movieRepository: MovieRepository;
 
