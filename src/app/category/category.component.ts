@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from '../models/category';
+import { CategoryRepository } from '../models/category.repository';
 
 @Component({
   selector: 'app-category',
@@ -7,13 +8,15 @@ import { Category } from '../models/category';
   styleUrls: ['./category.component.css'],
 })
 export class CategoryComponent implements OnInit {
-  categories: Category[] = [
-    { id: 1, name: 'Adventure' },
-    { id: 2, name: 'Romantic' },
-    { id: 3, name: 'Sci-Fi' },
-    { id: 4, name: 'Comedy' },
-  ];
-  constructor() {}
+  categories: Category[];
+  repository: CategoryRepository;
+
+  constructor() {
+      this.repository=new CategoryRepository();
+      this.categories=this.repository.getCategories();
+
+
+  }
 
   ngOnInit() {}
 }
